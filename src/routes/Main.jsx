@@ -8,10 +8,7 @@ const MainPage = () => {
   const navigate = useNavigate();
   const params = useParams();
 
-  const texts = useMemo(
-    () => ["hello world", "привет мир", "здравствуй, реальность"],
-    []
-  );
+  const texts = useMemo(() => ["Первая лаба", "Ежов Максим 1223", "<3"], []);
 
   const [textHello, setTextHello] = useState(texts[0]);
 
@@ -33,6 +30,8 @@ const MainPage = () => {
       </div>
     </>
   );
+
+  const handleAuth = useState;
 };
 
 export default MainPage;
