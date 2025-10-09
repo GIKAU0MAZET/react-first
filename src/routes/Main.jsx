@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./Main.scss";
 import HelloCard from "../components/HelloCard";
 import InstructionCard from "../components/InstructionCard";
+import BootsCard from "../components/BootsCard";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -20,12 +21,19 @@ const MainPage = () => {
     });
   }, [texts]);
 
+  const shoesImage = "public/images/kai.png";
+
   return (
     <>
       <div className="main">
         <div className="main__container">
           <HelloCard text={textHello} onNext={handleNext} />
           <InstructionCard />
+          <BootsCard
+            image={"/images/boots.png"}
+            title={"Кроссовки Adidas"}
+            price={"112 000"}
+          />
         </div>
       </div>
     </>
