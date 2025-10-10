@@ -1,17 +1,21 @@
-import React, { useMemo, useState, useCallback } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useMemo, useState, useCallback, useEffect } from "react";
 import "./Main.scss";
+import "../components/BootsCard.scss";
 import HelloCard from "../components/HelloCard";
-import InstructionCard from "../components/InstructionCard";
 import BootsCard from "../components/BootsCard";
 
 const MainPage = () => {
-  const navigate = useNavigate();
-  const params = useParams();
-
   const texts = useMemo(() => ["Первая лаба", "Ежов Максим 1223", "<3"], []);
 
   const [textHello, setTextHello] = useState(texts[0]);
+  const [isLoad, setIsLoad] = useState(true);
+
+  useEffect(() => {
+    setIsLoad(true);
+    setTimeout(() => {
+      setIsLoad(false);
+    }, 3000);
+  }, []);
 
   const handleNext = useCallback(() => {
     setTextHello((prev) => {
@@ -21,25 +25,39 @@ const MainPage = () => {
     });
   }, [texts]);
 
-  const shoesImage = "public/images/kai.png";
-
   return (
     <>
       <div className="main">
         <div className="main__container">
           <HelloCard text={textHello} onNext={handleNext} />
-          <InstructionCard />
-          <BootsCard
-            image={"/images/boots.png"}
-            title={"Кроссовки Adidas"}
-            price={"112 000"}
-          />
+          {isLoad === true ? (
+            <div>Загрузка</div>
+          ) : (
+            <div className="viewed-card">
+              <h2 className="viewed-title">Просмотренные</h2>
+              <div className="group-card">
+                <BootsCard
+                  image={"/images/boots.png"}
+                  title={"Кроссовки Adidas"}
+                  price={"112 000"}
+                />
+                <BootsCard
+                  image={"/images/boots.png"}
+                  title={"Кроссовки Nike Pegasus"}
+                  price={"113 000"}
+                />
+                <BootsCard
+                  image={"/images/boots.png"}
+                  title={"Кроссовки Nike"}
+                  price={"113 000"}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
   );
-
-  const handleAuth = useState;
 };
 
 export default MainPage;
