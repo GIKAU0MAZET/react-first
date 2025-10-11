@@ -20,6 +20,7 @@ const BootsCard = ({ image, title, price, onClick }) => {
         <Button
           onClick={handleAddToCart}
           children={isInCart ? "Добавлено в корзину" : "В корзину"}
+          isInCart={isInCart}
         />
       </div>
     </div>

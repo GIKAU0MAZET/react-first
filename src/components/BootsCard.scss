@@ -10,6 +10,12 @@
   font-weight: 700;
 }
 
+.loading-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .group-card {
   display: flex;
   flex-direction: row;
@@ -47,14 +53,23 @@
 }
 
 .btn-buy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: black;
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  gap: 8px;
 }
 
 .btn-buy:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.btn-buy.added {
+  background-color: green;
+    cursor: auto;
 }

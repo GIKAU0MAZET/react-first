@@ -30,11 +30,12 @@ const MainPage = () => {
       <div className="main">
         <div className="main__container">
           <HelloCard text={textHello} onNext={handleNext} />
-          {isLoad === true ? (
-            <div>Загрузка</div>
-          ) : (
-            <div className="viewed-card">
-              <h2 className="viewed-title">Просмотренные</h2>
+
+          <div className="viewed-card">
+            <h2 className="viewed-title">Просмотренные</h2>
+            {isLoad === true ? (
+              <div className="loading-title">Загрузка</div>
+            ) : (
               <div className="group-card">
                 <BootsCard
                   image={"/images/boots.png"}
@@ -52,8 +53,8 @@ const MainPage = () => {
                   price={"113 000"}
                 />
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </>
