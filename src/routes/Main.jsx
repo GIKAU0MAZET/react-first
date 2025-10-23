@@ -67,13 +67,12 @@ const MainPage = () => {
             <div className="loading-title">Загрузка</div>
           ) : (
             <div className="group-card">
-              {bootsData.map((boots, index) => ( // ✅ Добавил index для key
+              {bootsData.map((boots, index) => ( 
                 <BootsCard
-                  key={index} // ✅ Добавил обязательный key
+                  key={index}
                   image={boots.image}
                   title={boots.title}
                   price={boots.price}
-                  // ❌ Убрал onAddToCart - BootsCard сам использует useCart
                 />
               ))}
             </div>
