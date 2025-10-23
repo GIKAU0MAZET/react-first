@@ -2,8 +2,8 @@ import React, { useMemo, useState, useCallback, useEffect } from "react";
 import "./Main.scss";
 import "../components/BootsCard.scss";
 import HelloCard from "../components/HelloCard";
-import BootsCard from "../components/BootsCard";
-import { useCart } from "../context/CartContext"; 
+import ViewedCard from "../components/ViewedCard";
+import { useCart } from "../context/CartContext";
 
 const MainPage = () => {
   const texts = useMemo(() => ["Первая лаба", "Ежов Максим 1223", "<3"], []);
@@ -56,28 +56,19 @@ const MainPage = () => {
 
   return (
     <div className="main">
-      <button className="cart-button" onClick={resetCart}>
-        🛒 Товаров в корзине: {cartItems}
+      <button
+        type="button"
+        className="btn btn-dark cart-button"
+        data-bs-toggle="button"
+        autocomplete="off"
+        onClick={resetCart}
+      >
+        <img src="/images/group.svg" />
+        Товаров в корзине: {cartItems}
       </button>
       <div className="main__container">
         <HelloCard text={textHello} onNext={handleNext} />
-        <div className="viewed-card">
-          <h2 className="viewed-title">Просмотренные</h2>
-          {isLoad ? (
-            <div className="loading-title">Загрузка</div>
-          ) : (
-            <div className="group-card">
-              {bootsData.map((boots, index) => ( 
-                <BootsCard
-                  key={index}
-                  image={boots.image}
-                  title={boots.title}
-                  price={boots.price}
-                />
-              ))}
-            </div>
-          )}
-        </div>
+        <ViewedCard bootsData={bootsData} isLoad={isLoad} />
       </div>
     </div>
   );

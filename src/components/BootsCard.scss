@@ -53,6 +53,19 @@
   font-size: 14px;
 }
 
+.cart-button {
+  display: flex;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  gap: 8px;
+  border: none;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
 .btn-buy {
   display: flex;
   align-items: center;
@@ -72,5 +85,5 @@
 
 .btn-buy.added {
   background-color: green;
-    cursor: auto;
+  cursor: auto;
 }
