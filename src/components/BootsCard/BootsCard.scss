@@ -35,6 +35,10 @@
   height: 120px;
   width: 130px;
   border-radius: 16px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
 }
 
 .item-info {
@@ -60,10 +64,6 @@
   right: 20px;
   gap: 8px;
   border: none;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
 }
 
 .btn-buy {

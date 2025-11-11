@@ -1,14 +1,10 @@
-import React, { useMemo, useState, useCallback, useEffect } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import "./Main.scss";
-import "../components/BootsCard.scss";
-import HelloCard from "../components/HelloCard";
-import ViewedCard from "../components/ViewedCard";
+import "../components/BootsCard/BootsCard.scss";
+import ViewedCard from "../components/ViewedCard/ViewedCard";
 import { useCart } from "../context/CartContext";
 
 const MainPage = () => {
-  const texts = useMemo(() => ["Первая лаба", "Ежов Максим 1223", "<3"], []);
-
-  const [textHello, setTextHello] = useState(texts[0]);
   const [isLoad, setIsLoad] = useState(true);
 
   const { cartItems, resetCart } = useCart();
@@ -46,14 +42,6 @@ const MainPage = () => {
     }, 3000);
   }, []);
 
-  const handleNext = useCallback(() => {
-    setTextHello((prev) => {
-      const i = texts.indexOf(prev);
-      const next = texts[(i + 1) % texts.length];
-      return next;
-    });
-  }, [texts]);
-
   return (
     <div className="main">
       <button
@@ -63,11 +51,11 @@ const MainPage = () => {
         autocomplete="off"
         onClick={resetCart}
       >
-        <img src="/images/group.svg" />
+        <img src="/images/group.svg" alt={bootsData.title} />
         Товаров в корзине: {cartItems}
       </button>
       <div className="main__container">
-        <HelloCard text={textHello} onNext={handleNext} />
+        {/* <HelloCard text={textHello} onNext={handleNext} /> */}
         <ViewedCard bootsData={bootsData} isLoad={isLoad} />
       </div>
     </div>

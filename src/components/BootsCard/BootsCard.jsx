@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./BootsCard.scss";
-import Button from "./Button";
-import { useCart } from "../context/CartContext";
+import Button from "../Button";
+import { useCart } from "../../context/CartContext";
 
 const BootsCard = ({ image, title, price }) => {
   const [isInCart, setIsInCart] = useState(false);

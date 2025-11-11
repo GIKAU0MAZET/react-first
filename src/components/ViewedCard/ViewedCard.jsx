@@ -1,4 +1,4 @@
-import BootsCard from "../components/BootsCard";
+import BootsCard from "../BootsCard/BootsCard";
 
 const ViewedCard = ({ bootsData, isLoad }) => {
   return (
